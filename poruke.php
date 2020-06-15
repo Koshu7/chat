@@ -4,7 +4,7 @@ if(!isset($_SESSION['username'])){
 }
 require_once "db.php";
 
-$query = mysqli_query($conn,"SELECT * FROM poruka");
+$query = mysqli_query($conn,"SELECT * FROM (SELECT * FROM poruka ORDER BY id DESC LIMIT 20) poruka ORDER BY id;");
 
 
 while ($rezultat = mysqli_fetch_assoc($query)){

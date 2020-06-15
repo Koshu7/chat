@@ -10,7 +10,7 @@ if(!isset($_SESSION['username'])){
   <?php include "style.css"; ?> 
 </style>
 
-<body>
+<body onload="document.getElementById('poruka').focus();">
   <form action="dodavanje.php" method="POST">
     <div contenteditable="true"><?php include_once "poruke.php";?></div>
     <hr>
