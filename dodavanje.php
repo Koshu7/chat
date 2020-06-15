@@ -4,6 +4,9 @@ require_once "db.php";
 session_start();
 if(isset($_SESSION['username'])){
   $poruka = mysqli_real_escape_string($conn, $_POST['poruka']);
+  if($poruka == ''){
+    die(header('Location: index.php'));
+  }
   $ip = $_SESSION['ip_adresa'];
   $autor = $_SESSION['username'];
 
