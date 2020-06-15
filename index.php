@@ -6,9 +6,13 @@ if(!isset($_SESSION['username'])){
 }
 ?>
 
+<style>
+  <?php include "style.css"; ?> 
+</style>
+
 <body>
   <form action="dodavanje.php" method="POST">
-    <textarea name="sadrzaj" id="sadrzaj" cols="50" rows="10"></textarea>
+    <div contenteditable="true"><?php include_once "poruke.php";?></div>
     <hr>
     <label for="poruka"><?php echo $_SESSION['username'];?></label>
     <input type="text" name="poruka" id="poruka">

@@ -13,7 +13,10 @@ if (mysqli_fetch_assoc($query)){
   $_SESSION['ip_adresa'] = '192.168.0.12';
   header('Location: index.php');
 } else {
-  header('Location: prijava.html');
+  ?><script>
+    alert('Korisnik <?php echo $korisnickoIme; ?> ne postoji.');
+    window.location.assign('prijava.html');  
+  </script><?php
 }
 
 
