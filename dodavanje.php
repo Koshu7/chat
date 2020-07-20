@@ -1,12 +1,12 @@
 <?php
 
 require_once "db.php";
-session_start();
+include "poruke.php";
 if(isset($_SESSION['username'])){
   $poruka = mysqli_real_escape_string($conn, $_POST['poruka']);
-  if($poruka == ''){
-    die(header('Location: index.php'));
-  }
+  // if($poruka == ''){
+  //   die(header('Location: index.php'));
+  // }
   $ip = $_SESSION['ip_adresa'];
   $autor = $_SESSION['username'];
 
@@ -15,7 +15,8 @@ if(isset($_SESSION['username'])){
 
   $query = mysqli_query($conn,"INSERT INTO poruka (autor,ip,sadrzaj,korisnikId) VALUES ('$autor','$ip','$poruka','$nikId'); ");
   
-  header('Location: index.php');
+  
+  echo $ispis;
 } else {
   header('Location: prijava.html');
 }
